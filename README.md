@@ -23,7 +23,11 @@
 关于页面状态：vuex+sessionstorge。
 
 运行项目开发环境：
+
 1.安装数据库：从mongodb官网下载mongodb并安装。
+
 2.启动数据库服务：在mongodb安装目录下找到bin/mongod.exe，双击。
+
 3.进入本项目目录：cnpm install
+
 4.运行开发环境：npm run dev
