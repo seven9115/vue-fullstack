@@ -28,6 +28,6 @@
 
 2.启动数据库服务：在mongodb安装目录下找到bin/mongod.exe，双击。
 
-3.进入本项目目录：cnpm install
+3.进入本项目目录安装依赖包：cnpm install
 
 4.运行开发环境：npm run dev
