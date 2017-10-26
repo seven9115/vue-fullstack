@@ -98,8 +98,10 @@ devMiddleware.waitUntilValid(() => {
     _resolve()
   })
 })
+//启动API服务
 const apiServer = require('../server/index.js')
 apiServer.start()
+
 module.exports = {
   ready: readyPromise,
   close: () => {

@@ -14,6 +14,6 @@ export function fetch (url, params) {
 
 export default {
   testApi () {
-    return fetch('/api/user/getAccount')
+    return fetch('/api/users')
   }
 }

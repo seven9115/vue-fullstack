@@ -9,8 +9,8 @@ db.once('error',() => console.log('Mongo connection error'));
 db.once('open',() => console.log('Mongo connection successed'));
 /************** 定义模式loginSchema **************/
 const userSchema = mongoose.Schema({
-    account : String,
-    password : String
+    title : String,
+    website : String
 },{collection:"site"});
 
 /************** 定义模型Model **************/

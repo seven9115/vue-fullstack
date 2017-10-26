@@ -1,33 +1,30 @@
+# wechat
+
 > 全栈微信商城项目
 
-所用技术栈：Express+Mongoose(MongoDB)+Vue2。
+## Build Setup
 
-运行环境：node.js
+``` bash
+# install dependencies
+npm install
 
-后台框架：express.js
+# serve with hot reload at localhost:8080
+npm run dev
 
-数据库：Mongoose.js (MongoDB)
+# build for production with minification
+npm run build
 
-前端脚手架：vue-cli
+# build for production and view the bundle analyzer report
+npm run build --report
 
-用户认证：JSON WEB TOKEN
+# run unit tests
+npm run unit
 
-所用插件：vue-scroller/touchslider/layer。
+# run e2e tests
+npm run e2e
 
-关于前后端分离：restful接口。
+# run all tests
+npm test
+```
 
-关于跨域：proxyTable,代理模式。
-
-关于请求：axios+promise。
-
-关于页面状态：vuex+sessionstorge。
-
-运行项目开发环境：
-
-1.安装数据库：从mongodb官网下载mongodb并安装。
-
-2.启动数据库服务：在mongodb安装目录下找到bin/mongod.exe，双击。
-
-3.进入本项目目录安装依赖包：cnpm install
-
-4.运行开发环境：npm run dev
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
