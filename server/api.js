@@ -3,8 +3,36 @@
 const models = require('./db');
 const express = require('express');
 const router = express.Router();
+const expressJwt = require("express-jwt");
+const jwt = require("jsonwebtoken");
 
+router.use(expressJwt({secret: "secret"}).unless({path: ["/api/login"]}));
+router.use(function (err, req, res, next) {
+  if (err.name === "UnauthorizedError") {
+    res.status(401).send("invalid token");
+  }
+});
 /************** 创建(create) 读取(get) 更新(update) 删除(delete) **************/
+
+router.post("/api/login", function(req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+
+  if (!username) {
+    return res.status(400).send("username require");
+  }
+  if (!password) {
+    return res.status(400).send("password require");
+  }
+
+  if (username != "admin" && password != "password") {
+    return res.status(401).send("invaild password");
+  }
+
+  var authToken = jwt.sign({username: username}, "secret");
+  res.status(200).json({token: authToken});
+
+});
 
 // 获取已有博客账号接口
 router.get('/api/users',(req,res) => {
