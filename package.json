@@ -21,7 +21,8 @@
     "mongoose": "^4.12.3",
     "express": "^4.16.2",
     "express-jwt": "^5.3.0",
-    "jsonwebtoken": "^8.1.0"
+    "jsonwebtoken": "^8.1.0",
+    "js-md5": "^0.7.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

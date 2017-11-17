@@ -1,31 +1,7 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+	<router-view></router-view>
 </template>
 
 <script>
-import api from './fetch/api'
-
-export default {
-  name: 'app',
-  mounted () {
-    api.testApi()
-    .then(res => {
-      console.log(res)
-    })
-  }
-}
+  export default {}
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

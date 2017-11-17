@@ -1,4 +1,3 @@
-// 可能是我的node版本问题，不用严格模式使用ES6语法会报错
 "use strict";
 const models = require('./db');
 const express = require('express');
@@ -9,28 +8,45 @@ const jwt = require("jsonwebtoken");
 router.use(expressJwt({secret: "secret"}).unless({path: ["/api/login"]}));
 router.use(function (err, req, res, next) {
   if (err.name === "UnauthorizedError") {
-    res.status(401).send("invalid token");
+    res.status(200).send({errorCode:6,restbody:"token过期"});
   }
 });
 /************** 创建(create) 读取(get) 更新(update) 删除(delete) **************/
-
+router.post("/api/authToken", function(req, res) {
+  res.send({errorCode:0,restbody:"登录成功"})
+})
 router.post("/api/login", function(req, res) {
-  var username = req.body.username;
-  var password = req.body.password;
+  const user = req.body.user;
+  const password = req.body.password;
 
-  if (!username) {
-    return res.status(400).send("username require");
+  if (!user) {
+    return res.status(400).send("user require");
   }
   if (!password) {
     return res.status(400).send("password require");
   }
 
-  if (username != "admin" && password != "password") {
+  if (user != "admin" && password != "password") {
     return res.status(401).send("invaild password");
   }
-
-  var authToken = jwt.sign({username: username}, "secret");
-  res.status(200).json({token: authToken});
+  // 通过模型去查找数据库
+  const userModel = {
+    'user': req.body.user,
+    'password': req.body.password
+  }
+  models.User.findOne(userModel, (err,data) => {
+      if (err) {
+          res.send(err)
+      } else {
+        if(data){
+          const authToken = jwt.sign({user: user}, "secret")
+          res.status(200).json({errorCode:0,restbody:{token: authToken}})
+        }
+        else{
+          res.send({errCode:1,restbody:"用户名或密码错误"})
+        }
+      }
+  });
 
 });
 
