@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0; list-style:none}
+a{color:#2b2b2b; text-decoration:none}
+body{ font-size:0.24rem;font-family:Helvetica; background-color:#f0f0f0;}
+img { border:0px;}
+input,button{ border:0; }
+*{-webkit-tap-highlight-color: rgba(0, 0, 0, 0)}
+
+input,select{
+    appearance:none;
+    -webkit-appearance:none;
+    outline: none;
+}
+
+
+/*底部*/
+.foot{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    height: 1.18rem;
+    overflow: hidden;
+    background: url(../images/bottom-bg.png) no-repeat;
+    background-size:100% auto ;
+    text-align: center;
+}
+.foot ul li{
+    display: inline-block;
+    margin:0.12rem 0.3rem 0 0.3rem;
+    width: 0.56rem;
+    height: 0.96rem;
+    overflow: hidden;
+}
+.foot ul li a{
+    display: block;
+    height: 0.96rem;
+}
+.foot ul li.bottom-index{
+    background: url(../images/bottom-index.png) no-repeat;
+    background-size: 100% auto;
+}
+.foot ul li.bottom-course{
+    background: url(../images/bottom-course.png) no-repeat;
+    background-size: 100% auto;
+}
+.foot ul li.bottom-my{
+    background: url(../images/bottom-my.png) no-repeat;
+    background-size: 100% auto;
+}
+.foot ul li.bottom-msg{
+    background: url(../images/bottom-msg.png) no-repeat;
+    background-size: 100% auto;
+}
+.foot ul li.bottom-community{
+    background: url(../images/bottom-community.png) no-repeat;
+    background-size: 100% auto;
+}
+.foot ul li.bottom-cur{
+    background-position: 0 -0.96rem;
+}

@@ -1,3 +1,6 @@
+import './assets/style/public.css'
+import './assets/style/style.css'
+import './assets/js/rem'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './router'
