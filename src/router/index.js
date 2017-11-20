@@ -13,4 +13,7 @@ export default [{
     path: '/admin',
     component: r => require.ensure([], () => r(require('../pages/admin/index')), 'admin')
   }]
+},{
+  path: "*",
+  redirect: "/"
 }]

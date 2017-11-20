@@ -62,7 +62,6 @@ import banner4 from '../../../assets/images/indexbanner4.jpg'
 import banner5 from '../../../assets/images/indexbanner5.jpg'
 import api from '../../../fetch/api'
 import { mapGetters } from 'vuex'
-import store from '../../../store/'
 import layer from '../../../assets/js/layer/layer'
 export default {
     name: 'index',
