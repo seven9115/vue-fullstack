@@ -2,6 +2,7 @@ import axios from 'axios'
 export function fetch (url, params) {
   return new Promise((resolve, reject) => {
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.token
+    axios.defaults.headers.common['Content-Type'] = 'multipart/form-data'
     axios.post(url, params)
       .then(response => {
         resolve(response.data)
@@ -19,5 +20,9 @@ export default {
   },
   authTokenApi () {
     return fetch('/api/authToken')
+  },
+  uploadApi (param, config) {
+    return fetch('/api/uploader', param, config)
   }
-}
+} 
+ 

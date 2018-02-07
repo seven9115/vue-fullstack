@@ -4,6 +4,8 @@ const express = require('express');
 const router = express.Router();
 const expressJwt = require("express-jwt");
 const jwt = require("jsonwebtoken");
+const multer = require('multer');
+const path = require('path');
 
 router.use(expressJwt({secret: "secret"}).unless({path: ["/api/login"]}));
 router.use(function (err, req, res, next) {
@@ -99,7 +101,7 @@ router.put('/api/users/:id',(req,res) => {
             }
 		})
 	})
-})
+}) 
 
 router.delete('/api/users/:id',(req,res) => {
 	return models.User.findById(req.params.id,(err,user) => {
@@ -118,4 +120,28 @@ router.delete('/api/users/:id',(req,res) => {
 	})
 })
 
+/* 图片上传路由 */
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.resolve('uploads'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+const upload = multer({storage: storage}).single('file');
+router.post('/api/uploader', function(req, res) {
+  upload(req, res, function (err) {
+    if (err) {
+      return res.send({
+        errorCode: 12,
+        restbody: err
+      })
+    }
+    return res.send({
+      errorCode: 0,
+      restbody:{"path": "uploads/" + path.basename(req.file.path)}
+    });
+  })
+});
 module.exports = router;
